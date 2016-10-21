@@ -1,4 +1,13 @@
 *,ol,ul {margin: 0px;padding: 0px;}
+.row {
+    width: 100%;
+    height: auto;
+    margin: 0 auto
+}
+.row:after {
+    content: "";
+    display: table
+}
 body{font-size: 16px;}
 div,article,aside,details,figcaption,figure,footer,header,main,mark,nav,section,summary,time {
     display: block;
@@ -416,16 +425,7 @@ label {
 .txt-loc {
     text-transform: uppercase
 }
-.row {
-    width: 100%;max-width: 1260px;
-    height: auto;
-    text-align: left;
-    margin: 0 auto
-}
-.row:after {
-    content: "";
-    display: table
-}
+
 *,
 :after,
 :before {
@@ -498,7 +498,7 @@ label {
 .large-block-grid-4>li:nth-of-type(n) {
     clear: none
 }
-@media only screen and (min-width: 64.01em) {
+@media only screen and (min-width: 1024px) {
     .l-pad-b,
     .l-pad-tb {
         padding-bottom: 16px
@@ -599,8 +599,11 @@ label {
     .l-show {
         display: block
     }
+    .l-txt-c {
+        text-align: center
+    }
 }
-@media only screen and (max-width: 64em) {
+@media only screen and (max-width: 1024px) {
     .m-pad-b,
     .m-pad-tb {
         padding-bottom: 16px
@@ -738,7 +741,7 @@ label {
         display: block
     }
 }
-@media only screen and (max-width: 48em) {
+@media only screen and (max-width: 768px) {
     .sm-pad-b,
     .sm-pad-tb {
         padding-bottom: 16px
@@ -876,7 +879,7 @@ label {
         display: block
     }
 }
-@media only screen and (max-width: 40em) {
+@media only screen and (max-width: 640px) {
     .s-pad-b,
     .s-pad-tb {
         padding-bottom: 16px
@@ -1014,7 +1017,7 @@ label {
         display: block
     }
 }
-@media only screen and (max-width: 30em) {
+@media only screen and (max-width: 480px) {
     .sx-pad-b,
     .sx-pad-tb {
         padding-bottom: 16px
