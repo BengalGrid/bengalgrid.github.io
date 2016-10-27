@@ -1,6 +1,9 @@
 # Responsive-CSS-Grid
 Aiming to develop the lightest responsive css grid for cross browsers.
 
+Use the Responsive CSS grid from cdn
+<link rel="stylesheet" type="text/css" href="https://rawgit.com/BengalGrid/Responsive-CSS-Grid/master/bengal-grid-v1.0.minify.css">
+
 <ul>
 <li>row: .row class can be used to divide your webpages into a number of segment. Inside the row class you have to create the responsive css grid. You can divide the row into a number of columns as per as your need.</li>
 <li>column: based on medica screen we brought 5 types of column class
