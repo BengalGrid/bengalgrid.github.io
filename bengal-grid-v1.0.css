@@ -6,8 +6,10 @@
 }
 .row:after {
     content: "";
-    display: table
+    display: table;
+    clear: both
 }
+.fullwidth{width:100%;}
 body{font-size: 16px;}
 div,article,aside,details,figcaption,figure,footer,header,main,mark,nav,section,summary,time {
     display: block;
@@ -32,10 +34,11 @@ p{
     padding-bottom: 16px;
     line-height: 1.4
 }
-img,object{
+img,object,embed{
     height: auto;
     max-width: 100%
 }
+.fullimage img{width:100%}
 img.alignright{
     float: right;
     margin: 0 0 16px 16px
@@ -220,6 +223,14 @@ label {
     background-color: #d9534f;
     border-color: #d43f3a
 }
+
+[class^=l-] {
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    float: left
+}
+
 .nobor-l,
 .nobor-lr {
     border-left: none
@@ -245,30 +256,7 @@ label {
     clear: left;
     float: none
 }
-.pad-b,
-.pad-tb {
-    padding-bottom: 16px
-}
-.pad-t,
-.pad-tb {
-    padding-top: 16px
-}
-.pad-l,
-.pad-lr {
-    padding-left: 16px
-}
-.pad-lr,
-.pad-r {
-    padding-right: 16px
-}
-.mar-t,
-.mar-tb {
-    margin-top: 16px
-}
-.mar-b,
-.mar-tb {
-    margin-bottom: 16px
-}
+
 .l-hide {
     display: block
 }
@@ -302,6 +290,34 @@ label {
 .pad {
     padding: 16px
 }
+.nopad {
+    padding: 0
+}
+.pad-b,
+.pad-tb {
+    padding-bottom: 16px
+}
+.pad-t,
+.pad-tb {
+    padding-top: 16px
+}
+.pad-l,
+.pad-lr {
+    padding-left: 16px
+}
+.pad-lr,
+.pad-r {
+    padding-right: 16px
+}
+.mar-t,
+.mar-tb {
+    margin-top: 16px
+}
+.mar-b,
+.mar-tb {
+    margin-bottom: 16px
+}
+
 .nopad-l,
 .nopad-lr {
     padding-left: 0
@@ -318,9 +334,7 @@ label {
 .nopad-tb {
     padding-bottom: 0
 }
-.nopad {
-    padding: 0
-}
+
 .neg-mar-lr {
     margin-left: -16px;
     margin-right: -16px
@@ -335,6 +349,9 @@ label {
 }
 .mar {
     margin: 16px
+}
+.nomar {
+    margin: 0
 }
 .nomar-l,
 .nomar-lr {
@@ -352,9 +369,7 @@ label {
 .nomar-tb {
     margin-bottom: 0
 }
-.nomar {
-    margin: 0
-}
+
 .nobor-tb {
     border-bottom: none
 }
@@ -414,11 +429,7 @@ label {
 .panel header {
     padding: 8px 16px
 }
-.large-block-grid-4>li:nth-of-type(4n+1),
-.row:after,
-[class*=block-grid-]:after {
-    clear: both
-}
+
 .txt-upc {
     text-transform: uppercase
 }
@@ -434,12 +445,6 @@ label {
     box-sizing: border-box
 }
 
-[class^=l-] {
-    padding-left: 16px;
-    padding-right: 16px;
-    position: relative;
-    float: left
-}
 .l-1 {
     width: 8.33333333333%
 }
@@ -476,29 +481,42 @@ label {
 .l-12 {
     width: 100%
 }
-[class*=block-grid-]:after,
-[class*=block-grid-]:before {
+
+.l-grid-4>li:nth-of-type(4n+1),
+[class*=grid-]:after {
+    clear: both
+}
+[class*=l-grid-]:after,
+[class*=l-grid-]:before {
     content: " ";
     display: table
 }
-[class*=block-grid-] {
+[class*=l-grid-] {
     display: block;
-    margin: 0 -.625em;
+    /*margin: 0 -.625em;*/
     padding: 0
 }
-[class*=block-grid-]>li {
+[class*=l-grid-]>li {
     display: inline;
     float: left;
     height: auto;
     padding: .625em
 }
-.large-block-grid-4>li {
-    width: 25%
-}
-.large-block-grid-4>li:nth-of-type(n) {
-    clear: none
-}
+.l-grid-1>li{width: 100%}
+.l-grid-2>li{width: 50%}
+.l-grid-3>li{width: 33.33%}
+.l-grid-4>li{width: 25%}
+.l-grid-5>li{width: 20%}
+.l-grid-6>li{width: 16.6666667%}
+.l-grid-1>li:nth-of-type(n+1), .l-grid-2>li:nth-of-type(n), .l-grid-3>li:nth-of-type(n+1), .l-grid-4>li:nth-of-type(n), .l-grid-5>li:nth-of-type(n+1), .l-grid-6>li:nth-of-type(n){clear: none}
+
 @media only screen and (min-width: 1024px) {
+    .l-pad {
+        padding: 16px
+    }
+    .l-nopad {
+        padding: 0
+    }
     .l-pad-b,
     .l-pad-tb {
         padding-bottom: 16px
@@ -514,31 +532,6 @@ label {
     .l-pad-lr,
     .l-pad-r {
         padding-right: 16px
-    }
-    .l-mar-t,
-    .l-mar-tb {
-        margin-top: 16px
-    }
-    .l-mar-b,
-    .l-mar-tb {
-        margin-bottom: 16px
-    }
-    .l-mar-l,
-    .l-mar-lr {
-        margin-left: 16px
-    }
-    .l-mar-lr,
-    .l-mar-r {
-        margin-right: 16px
-    }
-    .wrap {
-        max-width: 90em
-    }
-    .large {
-        display: block
-    }
-    .l-pad {
-        padding: 16px
     }
     .l-nopad-l,
     .l-nopad-lr {
@@ -556,11 +549,27 @@ label {
     .l-nopad-tb {
         padding-bottom: 0
     }
-    .l-nopad {
-        padding: 0
-    }
     .l-mar {
         margin: 16px
+    }
+    .l-nomar {
+        margin: 0
+    }
+    .l-mar-t,
+    .l-mar-tb {
+        margin-top: 16px
+    }
+    .l-mar-b,
+    .l-mar-tb {
+        margin-bottom: 16px
+    }
+    .l-mar-l,
+    .l-mar-lr {
+        margin-left: 16px
+    }
+    .l-mar-lr,
+    .l-mar-r {
+        margin-right: 16px
     }
     .l-nomar-l,
     .l-nomar-lr {
@@ -577,10 +586,7 @@ label {
     .l-nomar-b,
     .l-nomar-tb {
         margin-bottom: 0
-    }
-    .l-nomar {
-        margin: 0
-    }
+    }   
     .l-txt-r {
         text-align: right
     }
@@ -599,49 +605,8 @@ label {
     .l-show {
         display: block
     }
-    .l-txt-c {
-        text-align: center
-    }
 }
 @media only screen and (max-width: 1024px) {
-    .m-pad-b,
-    .m-pad-tb {
-        padding-bottom: 16px
-    }
-    .m-pad-t,
-    .m-pad-tb {
-        padding-top: 16px
-    }
-    .m-pad-l,
-    .m-pad-lr {
-        padding-left: 16px
-    }
-    .m-pad-lr,
-    .m-pad-r {
-        padding-right: 16px
-    }
-    .m-mar-t,
-    .m-mar-tb {
-        margin-top: 16px
-    }
-    .m-mar-b,
-    .m-mar-tb {
-        margin-bottom: 16px
-    }
-    .m-mar-l,
-    .m-mar-lr {
-        margin-left: 16px
-    }
-    .m-mar-lr,
-    .m-mar-r {
-        margin-right: 16px
-    }
-    .wrap {
-        max-width: 64em
-    }
-    .medium {
-        display: block
-    }
     .m-1 {
         width: 8.33333333333%
     }
@@ -681,6 +646,25 @@ label {
     .m-pad {
         padding: 16px
     }
+    .m-nopad {
+        padding: 0
+    }
+    .m-pad-b,
+    .m-pad-tb {
+        padding-bottom: 16px
+    }
+    .m-pad-t,
+    .m-pad-tb {
+        padding-top: 16px
+    }
+    .m-pad-l,
+    .m-pad-lr {
+        padding-left: 16px
+    }
+    .m-pad-lr,
+    .m-pad-r {
+        padding-right: 16px
+    }
     .m-nopad-l,
     .m-nopad-lr {
         padding-left: 0
@@ -697,12 +681,29 @@ label {
     .m-nopad-tb {
         padding-bottom: 0
     }
-    .m-nopad {
-        padding: 0
-    }
     .m-mar {
         margin: 16px
     }
+    .m-nomar {
+        margin: 0
+    }
+    .m-mar-t,
+    .m-mar-tb {
+        margin-top: 16px
+    }
+    .m-mar-b,
+    .m-mar-tb {
+        margin-bottom: 16px
+    }
+    .m-mar-l,
+    .m-mar-lr {
+        margin-left: 16px
+    }
+    .m-mar-lr,
+    .m-mar-r {
+        margin-right: 16px
+    }   
+
     .m-nomar-l,
     .m-nomar-lr {
         margin-left: 0
@@ -718,10 +719,7 @@ label {
     .m-nomar-b,
     .m-nomar-tb {
         margin-bottom: 0
-    }
-    .m-nomar {
-        margin: 0
-    }
+    }   
     .m-txt-r {
         text-align: right
     }
@@ -740,46 +738,19 @@ label {
     .m-show {
         display: block
     }
+
+    .m-grid-1>li{width: 100%}
+    .m-grid-2>li{width: 50%}
+    .m-grid-3>li{width: 33.33%}
+    .m-grid-4>li{width: 25%}
+    .m-grid-5>li{width: 20%}
+    .m-grid-6>li{width: 16.6666667%}
+    .m-grid-1>li:nth-of-type(n+1), .m-grid-2>li:nth-of-type(n), .m-grid-3>li:nth-of-type(n+1), .m-grid-4>li:nth-of-type(n), .m-grid-5>li:nth-of-type(n+1), .m-grid-6>li:nth-of-type(n){clear: none}
+
 }
 @media only screen and (max-width: 768px) {
-    .sm-pad-b,
-    .sm-pad-tb {
-        padding-bottom: 16px
-    }
-    .sm-pad-t,
-    .sm-pad-tb {
-        padding-top: 16px
-    }
-    .sm-pad-l,
-    .sm-pad-lr {
-        padding-left: 16px
-    }
-    .sm-pad-lr,
-    .sm-pad-r {
-        padding-right: 16px
-    }
-    .sm-mar-t,
-    .sm-mar-tb {
-        margin-top: 16px
-    }
-    .sm-mar-b,
-    .sm-mar-tb {
-        margin-bottom: 16px
-    }
-    .sm-mar-l,
-    .sm-mar-lr {
-        margin-left: 16px
-    }
-    .sm-mar-lr,
-    .sm-mar-r {
-        margin-right: 16px
-    }
-    .wrap {
-        max-width: 48em
-    }
-    .smedium {
-        display: block
-    }
+
+
     .sm-1 {
         width: 8.33333333333%
     }
@@ -819,6 +790,27 @@ label {
     .sm-pad {
         padding: 16px
     }
+    .sm-nopad {
+        padding: 0
+    }
+    .sm-pad-b,
+    .sm-pad-tb {
+        padding-bottom: 16px
+    }
+    .sm-pad-t,
+    .sm-pad-tb {
+        padding-top: 16px
+    }
+    .sm-pad-l,
+    .sm-pad-lr {
+        padding-left: 16px
+    }
+    .sm-pad-lr,
+    .sm-pad-r {
+        padding-right: 16px
+    }
+
+    
     .sm-nopad-l,
     .sm-nopad-lr {
         padding-left: 0
@@ -835,12 +827,29 @@ label {
     .sm-nopad-tb {
         padding-bottom: 0
     }
-    .sm-nopad {
-        padding: 0
-    }
     .sm-mar {
         margin: 16px
     }
+    .sm-nomar {
+        margin: 0
+    }
+    .sm-mar-t,
+    .sm-mar-tb {
+        margin-top: 16px
+    }
+    .sm-mar-b,
+    .sm-mar-tb {
+        margin-bottom: 16px
+    }
+    .sm-mar-l,
+    .sm-mar-lr {
+        margin-left: 16px
+    }
+    .sm-mar-lr,
+    .sm-mar-r {
+        margin-right: 16px
+    }
+
     .sm-nomar-l,
     .sm-nomar-lr {
         margin-left: 0
@@ -857,9 +866,7 @@ label {
     .sm-nomar-tb {
         margin-bottom: 0
     }
-    .sm-nomar {
-        margin: 0
-    }
+    
     .sm-txt-r {
         text-align: right
     }
@@ -878,46 +885,18 @@ label {
     .sm-show {
         display: block
     }
+
+    .sm-grid-1>li{width: 100%}
+    .sm-grid-2>li{width: 50%}
+    .sm-grid-3>li{width: 33.33%}
+    .sm-grid-4>li{width: 25%}
+    .sm-grid-5>li{width: 20%}
+    .sm-grid-6>li{width: 16.6666667%}
+    .sm-grid-1>li:nth-of-type(n+1), .sm-grid-2>li:nth-of-type(n), .sm-grid-3>li:nth-of-type(n+1), .sm-grid-4>li:nth-of-type(n), .sm-grid-5>li:nth-of-type(n+1), .sm-grid-6>li:nth-of-type(n){clear: none}
+
 }
 @media only screen and (max-width: 640px) {
-    .s-pad-b,
-    .s-pad-tb {
-        padding-bottom: 16px
-    }
-    .s-pad-t,
-    .s-pad-tb {
-        padding-top: 16px
-    }
-    .s-pad-l,
-    .s-pad-lr {
-        padding-left: 16px
-    }
-    .s-pad-lr,
-    .s-pad-r {
-        padding-right: 16px
-    }
-    .s-mar-t,
-    .s-mar-tb {
-        margin-top: 16px
-    }
-    .s-mar-b,
-    .s-mar-tb {
-        margin-bottom: 16px
-    }
-    .s-mar-l,
-    .s-mar-lr {
-        margin-left: 16px
-    }
-    .s-mar-lr,
-    .s-mar-r {
-        margin-right: 16px
-    }
-    .wrap {
-        max-width: 40em
-    }
-    .small {
-        display: block
-    }
+    
     .s-1 {
         width: 8.33333333333%
     }
@@ -957,6 +936,26 @@ label {
     .s-pad {
         padding: 16px
     }
+    .s-nopad {
+        padding: 0
+    }
+    .s-pad-b,
+    .s-pad-tb {
+        padding-bottom: 16px
+    }
+    .s-pad-t,
+    .s-pad-tb {
+        padding-top: 16px
+    }
+    .s-pad-l,
+    .s-pad-lr {
+        padding-left: 16px
+    }
+    .s-pad-lr,
+    .s-pad-r {
+        padding-right: 16px
+    }
+    
     .s-nopad-l,
     .s-nopad-lr {
         padding-left: 0
@@ -973,11 +972,28 @@ label {
     .s-nopad-tb {
         padding-bottom: 0
     }
-    .s-nopad {
-        padding: 0
-    }
+    
     .s-mar {
         margin: 16px
+    }
+    .s-nomar {
+        margin: 0
+    }
+    .s-mar-t,
+    .s-mar-tb {
+        margin-top: 16px
+    }
+    .s-mar-b,
+    .s-mar-tb {
+        margin-bottom: 16px
+    }
+    .s-mar-l,
+    .s-mar-lr {
+        margin-left: 16px
+    }
+    .s-mar-lr,
+    .s-mar-r {
+        margin-right: 16px
     }
     .s-nomar-l,
     .s-nomar-lr {
@@ -995,9 +1011,7 @@ label {
     .s-nomar-tb {
         margin-bottom: 0
     }
-    .s-nomar {
-        margin: 0
-    }
+    
     .s-txt-r {
         text-align: right
     }
@@ -1016,43 +1030,16 @@ label {
     .s-show {
         display: block
     }
+    .s-grid-1>li{width: 100%}
+    .s-grid-2>li{width: 50%}
+    .s-grid-3>li{width: 33.33%}
+    .s-grid-4>li{width: 25%}
+    .s-grid-5>li{width: 20%}
+    .s-grid-6>li{width: 16.6666667%}
+    .s-grid-1>li:nth-of-type(n+1), .s-grid-2>li:nth-of-type(n), .s-grid-3>li:nth-of-type(n+1), .s-grid-4>li:nth-of-type(n), .s-grid-5>li:nth-of-type(n+1), .s-grid-6>li:nth-of-type(n){clear: none}
 }
 @media only screen and (max-width: 480px) {
-    .sx-pad-b,
-    .sx-pad-tb {
-        padding-bottom: 16px
-    }
-    .sx-pad-t,
-    .sx-pad-tb {
-        padding-top: 16px
-    }
-    .sx-pad-l,
-    .sx-pad-lr {
-        padding-left: 16px
-    }
-    .sx-pad-lr,
-    .sx-pad-r {
-        padding-right: 16px
-    }
-    .sx-mar-t,
-    .sx-mar-tb {
-        margin-top: 16px
-    }
-    .sx-mar-b,
-    .sx-mar-tb {
-        margin-bottom: 16px
-    }
-    .sx-mar-l,
-    .sx-mar-lr {
-        margin-left: 16px
-    }
-    .sx-mar-lr,
-    .sx-mar-r {
-        margin-right: 16px
-    }
-    .xsmall {
-        display: block
-    }
+    
     .xs-1 {
         width: 8.33333333333%
     }
@@ -1092,6 +1079,25 @@ label {
     .sx-pad {
         padding: 16px
     }
+    .sx-nopad {
+        padding: 0
+    }
+    .sx-pad-b,
+    .sx-pad-tb {
+        padding-bottom: 16px
+    }
+    .sx-pad-t,
+    .sx-pad-tb {
+        padding-top: 16px
+    }
+    .sx-pad-l,
+    .sx-pad-lr {
+        padding-left: 16px
+    }
+    .sx-pad-lr,
+    .sx-pad-r {
+        padding-right: 16px
+    }
     .sx-nopad-l,
     .sx-nopad-lr {
         padding-left: 0
@@ -1108,11 +1114,28 @@ label {
     .sx-nopad-tb {
         padding-bottom: 0
     }
-    .sx-nopad {
-        padding: 0
-    }
+    
     .sx-mar {
         margin: 16px
+    }
+    .sx-nomar {
+        margin: 0
+    }
+    .sx-mar-t,
+    .sx-mar-tb {
+        margin-top: 16px
+    }
+    .sx-mar-b,
+    .sx-mar-tb {
+        margin-bottom: 16px
+    }
+    .sx-mar-l,
+    .sx-mar-lr {
+        margin-left: 16px
+    }
+    .sx-mar-lr,
+    .sx-mar-r {
+        margin-right: 16px
     }
     .sx-nomar-l,
     .sx-nomar-lr {
@@ -1130,9 +1153,7 @@ label {
     .sx-nomar-tb {
         margin-bottom: 0
     }
-    .sx-nomar {
-        margin: 0
-    }
+    
     .sx-txt-r {
         text-align: right
     }
@@ -1151,6 +1172,13 @@ label {
     .sx-show {
         display: block
     }
+    .xs-grid-1>li{width: 100%}
+    .xs-grid-2>li{width: 50%}
+    .xs-grid-3>li{width: 33.3333333%}
+    .xs-grid-4>li{width: 25%}
+    .xs-grid-5>li{width: 20%}
+    .xs-grid-6>li{width: 16.6666667%}
+    .xs-grid-1>li:nth-of-type(n+1), .xs-grid-2>li:nth-of-type(n), .xs-grid-3>li:nth-of-type(n+1), .xs-grid-4>li:nth-of-type(n), .xs-grid-5>li:nth-of-type(n+1), .xs-grid-6>li:nth-of-type(n){clear: none}
 }
 
 
