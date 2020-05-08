@@ -148,10 +148,7 @@ body{
 article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{
     display:block
 }
-ol,ul{
-    list-style:none;
-    padding: 0px;
-}
+
 h1,h2,h3,h4,h5,h6{
     line-height:1.4rem;
     padding:.5rem 0 .5rem
